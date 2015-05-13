@@ -13,7 +13,7 @@ var buttonsStart = function(uuid, token){
         return console.error('errro getting device', device.error);
       }
       var name = device.name;
-      
+
       device.buttons.forEach(function(button){
         var href = button.href, topic = button.topic;
         if(!href || !topic){
@@ -45,14 +45,16 @@ var buttonsStart = function(uuid, token){
   });
 };
 
-var interval;
-var checkForCreds = function(){
-  var uuid = location.hash.substring(2).split('/')[0];
-  var token = location.hash.substring(2).split('/')[1];
-  if(uuid && token){
-    clearInterval(interval);
-    buttonsStart(uuid, token);
-  }
-};
-interval = setInterval(checkForCreds, 1000);
-checkForCreds();
+$(function(){
+  var interval;
+  var checkForCreds = function(){
+    var uuid = location.hash.substring(2).split('/')[0];
+    var token = location.hash.substring(2).split('/')[1];
+    if(uuid && token){
+      clearInterval(interval);
+      buttonsStart(uuid, token);
+    }
+  };
+  interval = setInterval(checkForCreds, 1000);
+  checkForCreds();
+});
