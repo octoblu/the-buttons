@@ -40,7 +40,7 @@ var buttonsStart = function(uuid, token){
         if(element.is('a')){
           window.location= element.attr('href');
         }else{
-          message = JSON.parse(element.attr('data'));
+          var message = JSON.parse(element.attr('data'));
           message.devices = '*';
           connection.message(message);
         }
