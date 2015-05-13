@@ -12,21 +12,25 @@ var buttonsStart = function(uuid, token){
       if(device.error){
         return console.error('error getting device', device.error);
       }
-      $('page-title').text(device.name);
+      $('#page-title').text(device.name);
+      $('#buttons-container').html("");
       device.buttons.forEach(function(button){
-        if(!button.href || !button.topic){
+        var template = "";
+        if(!button.href && !button.topic){
           return;
         }
         if(button.href){
-          template = $('#link-template').html();
-          template.attr('href', href);
+          template = $($('#link-template').html());
+          template.attr('href', button.href);
         }else{
-          template = $('#button-template').html();
+          template = $($('#button-template').html());
           template.attr('topic', button.topic);
         }
         template.text(button.name);
-        button.element = $('#buttons-container').html(template);
-        button.element.click(function(event){
+        button.element = $('#buttons-container').append(template);
+
+
+        $('button').click(function(event){
           event.preventDefault();
           var element = $(this);
           if(element.is('a')){
@@ -39,7 +43,6 @@ var buttonsStart = function(uuid, token){
           }
         });
       });
-
     });
   });
 };
@@ -57,4 +60,5 @@ $(function(){
   };
   interval = setInterval(checkForCreds, 1000);
   checkForCreds();
+
 });

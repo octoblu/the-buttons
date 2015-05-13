@@ -17,7 +17,7 @@
           flex-wrap: wrap;
 }
 
-.button-grid a {
+.button-grid .btn-large {
   margin: 16px;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
