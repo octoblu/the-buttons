@@ -30,19 +30,18 @@ var buttonsStart = function(uuid, token){
         template.text(button.name);
         button.element = $('#buttons-container').append(template);
 
-
-        $('button').click(function(event){
-          event.preventDefault();
-          var element = $(this);
-          if(element.is('a')){
-            window.location= element.attr('href');
-          }else{
-            connection.message({
-              devices: '*',
-              topic: element.attr('topic')
-            })
-          }
-        });
+      });
+      $('button').click(function(event){
+        event.preventDefault();
+        var element = $(this);
+        if(element.is('a')){
+          window.location= element.attr('href');
+        }else{
+          connection.message({
+            devices: '*',
+            topic: element.attr('topic')
+          });
+        }
       });
     });
   });
