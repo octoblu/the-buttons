@@ -1,5 +1,6 @@
 'use strict';
 var buttonsStart = function(uuid, token){
+  $('#loading-spinner').show();
   var connection = meshblu.createConnection({
     uuid: uuid,
     token: token
@@ -48,17 +49,17 @@ var buttonsStart = function(uuid, token){
 };
 
 $(function(){
+  var lastUuid, lastToken;
   var interval;
   var checkForCreds = function(){
     var uuid = location.hash.substring(2).split('/')[0];
     var token = location.hash.substring(2).split('/')[1];
-    if(uuid && token){
-      clearInterval(interval);
-      interval = null;
+    if(uuid && token && uuid !== lastUuid && token !== lastToken){
+      lastUuid = uuid;
+      lastToken = token;
       buttonsStart(uuid, token);
     }
   };
   interval = setInterval(checkForCreds, 1000);
   checkForCreds();
-
 });
