@@ -1,6 +1,6 @@
 'use strict';
 var buttonsStart = function(uuid, token){
-  $('#loading-spinner').show();
+  $('#loading-spinner').slideDown();
   var connection = meshblu.createConnection({
     uuid: uuid,
     token: token
@@ -9,7 +9,7 @@ var buttonsStart = function(uuid, token){
   connection.on('ready', function(data){
     console.log('ready');
     connection.whoami({}, function(device){
-      $('#loading-spinner').hide();
+      $('#loading-spinner').slideUp();
       console.log('whoami', device);
       if(device.error){
         return console.error('error getting device', device.error);
