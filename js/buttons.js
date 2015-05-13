@@ -44,15 +44,17 @@ var buttonsStart = function(uuid, token){
   });
 };
 
-var interval;
-var checkForCreds = function(){
-  var uuid = location.hash.substring(2).split('/')[0];
-  var token = location.hash.substring(2).split('/')[1];
-  if(uuid && token){
-    clearInterval(interval);
-    interval = null;
-    buttonsStart(uuid, token);
-  }
-};
-interval = setInterval(checkForCreds, 1000);
-checkForCreds();
+$(function(){
+  var interval;
+  var checkForCreds = function(){
+    var uuid = location.hash.substring(2).split('/')[0];
+    var token = location.hash.substring(2).split('/')[1];
+    if(uuid && token){
+      clearInterval(interval);
+      interval = null;
+      buttonsStart(uuid, token);
+    }
+  };
+  interval = setInterval(checkForCreds, 1000);
+  checkForCreds();
+});
