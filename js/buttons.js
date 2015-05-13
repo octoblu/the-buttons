@@ -8,7 +8,7 @@ var buttonsStart = function(uuid, token){
   connection.on('ready', function(data){
     console.log('ready');
     connection.whoami({}, function(device){
-      console.log('whoami', whoami);
+      console.log('whoami', device);
       if(device.error){
         return console.error('errro getting device', device.error);
       }
