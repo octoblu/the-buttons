@@ -20,6 +20,7 @@ var buttonsStart = function(uuid, token){
         if(!button.href && !button.topic){
           return;
         }
+        var color = button.color || "teal";
         if(button.href){
           template = $($('#link-template').html());
           template.attr('href', button.href);
@@ -28,6 +29,7 @@ var buttonsStart = function(uuid, token){
           template.attr('topic', button.topic);
         }
         template.text(button.name);
+        template.addClass(color);
         button.element = $('#buttons-container').append(template);
 
       });
