@@ -27,7 +27,7 @@ var buttonsStart = function(uuid, token){
           template.attr('href', button.href);
         }else{
           template = $($('#button-template').html());
-          template.attr('topic', button.topic);
+          template.attr('data', JSON.stringify(button));
         }
         template.text(button.name);
         template.addClass(color);
@@ -40,10 +40,9 @@ var buttonsStart = function(uuid, token){
         if(element.is('a')){
           window.location= element.attr('href');
         }else{
-          connection.message({
-            devices: '*',
-            topic: element.attr('topic')
-          });
+          message = JSON.parse(element.attr('data'));
+          message.devices = '*';
+          connection.message(message);
         }
       });
     });
