@@ -12,20 +12,19 @@ var buttonsStart = function(uuid, token){
       if(device.error){
         return console.error('errro getting device', device.error);
       }
-      var name = device.name;
-      
+      $('page-title').text(device.name);
       device.buttons.forEach(function(button){
-        var href = button.href, topic = button.topic;
-        if(!href || !topic){
+        if(!button.href || !button.topic){
           return;
         }
-        if(href){
+        if(button.href){
           template = $('#link-template').html();
           template.attr('href', href);
         }else{
           template = $('#button-template').html();
-          template.attr('topic', topic);
+          template.attr('topic', button.topic);
         }
+        template.text(button.name);
         button.element = $('#buttons-container').html(template);
         button.element.click(function(event){
           event.preventDefault();
@@ -51,6 +50,7 @@ var checkForCreds = function(){
   var token = location.hash.substring(2).split('/')[1];
   if(uuid && token){
     clearInterval(interval);
+    interval = null;
     buttonsStart(uuid, token);
   }
 };
