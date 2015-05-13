@@ -8,6 +8,7 @@ var buttonsStart = function(uuid, token){
   connection.on('ready', function(data){
     console.log('ready');
     connection.whoami({}, function(device){
+      $('#loading-spinner').hide();
       console.log('whoami', device);
       if(device.error){
         return console.error('error getting device', device.error);
