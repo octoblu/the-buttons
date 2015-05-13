@@ -10,7 +10,7 @@ var buttonsStart = function(uuid, token){
     connection.whoami({}, function(device){
       console.log('whoami', whoami);
       if(device.error){
-        return console.error('errro getting device', device.error);
+        return console.error('error getting device', device.error);
       }
       $('page-title').text(device.name);
       device.buttons.forEach(function(button){
