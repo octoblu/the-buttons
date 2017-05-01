@@ -9,6 +9,7 @@ deploy:
     secure: nOPMz+ay0nuA9v/cSwXvydenjEas334COvwLMzLoakIAtYCCTZJSe2kMUQT2BGLdARNbvz+BjHOujo7l9IfMlOFxSCSEKXcQaAxzBvuM4406jPNuQ+A/B9nTn+uvxvm41Jnvpi14JRyTCkVGkF2LTzDCDiLJ/XPNVmrYHoxtPF7VniXoi9HzVilJE4Y8Jzt5pwVCdGgZEXc63aAj9BCOnRd2gmNvvBktVX5hOD3UMIXvZ+CECZO48lUSG8XvMIPv8ecLAcqr4WaiycF9Fae3/x+Vi3u9T0KT9Ok+bqnxxWI/z/fg785kiHWoLxqzKsTfZIfveAp3Il2Jrf7dHRCKPXxOBmNMMcjA0RNAagJGuBfrBafBLSLBfhBJDT+4nFDMmtL2h8Cc/pdTKaeZUbP1liE75CX3la3pTG6Yo3A8c9pFpGNAlydEiEn6nZM3stkDpI+m0fJV4exi52fHsvs3J8yHZCzIGJjivyppg4chZG81lSlTbLIGH7hQ699tb+1MB0DA6xeenYjnEg8MMBZXKU9UYQ+7HCiNwZMWKj7iM4GLqoRrT8mRWtC4LZ+nkJhogVKB+swsS4cFbdPIcTg9PXPHnfZOcq5f+bwRLIjzq6yme5FsnGik1qfRwaQXo9mqiUNbQ7a+iFKCj1RE0+1TXrHZzyxOQP3bEk0/b1A4QEQ=
   bucket: buttons.octoblu.com
   endpoint: buttons.octoblu.com.s3-website-us-west-2.amazonaws.com
+  region: us-west-2
   on:
     tags: true
     repo: octoblu/the-buttons
