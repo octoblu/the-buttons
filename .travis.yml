@@ -1,11 +1,14 @@
 language: shell
+branches:
+  only:
+    - '/^v[0-9]/'
 deploy:
-- provider: s3
-  access_key_id: AKIAIT4X4NDGM2WVL6VA
-  secret_access_key: &1
-    secure: "Z9PPeH+i6g8bPb5Qa31wwxKr7GxT/SgjVAhJu2hAARwOZZFbGi/b2LETQBUuhxC7SNGMiiI3lC+3p84eGlVLCVCg7USW9/iN+gDcWUV4AppgRr7EVEUTbpLAcKW/ewBfprhmxzWtmcZGLLmhTuS9vqtGEjhpWtucJw7fLGgUxEFHJux6K1xzOXWeHOaI4efsY/sCtOb/pvEV2A3ZwcvLczbaHqmjMnVNvUusyFtwRWhNNglwr7lAXQr/YfL7XwU0yCPCACxXFwv527L6oUp20SuYQdiCoh/ysDxh5Yu7VW5Yv/t3gwa+7j9f/7ivj2qTkCeAxTTfOuSsOYw+ZOai+P+e7JjACcuTS7K3VFmxJSExfV3Yc5VZNnfuS6IYZguoFcuM9BwgwXVaTTGwqrELhpsl+GR60qmMSiXQ7VDkvA+W9XMmB7NIqyGr0zW6OsxutzRpRNCcD3sNdg9/aFb9rpwED/L9CYwnDfG3VRw+8+RTJ2e7qU0s4soNGthUPjDQ7fHRQ77JVgarepNFmDu7JHQyrGKIuGq0WmndtucHHJiXVk9Y2vv8eaBsp+/Ee4WKPYxQ0+ukYQaecS5PnQzPQSIhsSknB0uenilTTED0OOLVntQ6M4nyRMMcF2JL4BekSri6aXbsEII27y13F0z7oZMV7KXGZ6uvUJddgYeIeUs="
+  provider: s3
+  access_key_id: AKIAJH2D5IPIRHYJT5IA
+  secret_access_key:
+    secure: nOPMz+ay0nuA9v/cSwXvydenjEas334COvwLMzLoakIAtYCCTZJSe2kMUQT2BGLdARNbvz+BjHOujo7l9IfMlOFxSCSEKXcQaAxzBvuM4406jPNuQ+A/B9nTn+uvxvm41Jnvpi14JRyTCkVGkF2LTzDCDiLJ/XPNVmrYHoxtPF7VniXoi9HzVilJE4Y8Jzt5pwVCdGgZEXc63aAj9BCOnRd2gmNvvBktVX5hOD3UMIXvZ+CECZO48lUSG8XvMIPv8ecLAcqr4WaiycF9Fae3/x+Vi3u9T0KT9Ok+bqnxxWI/z/fg785kiHWoLxqzKsTfZIfveAp3Il2Jrf7dHRCKPXxOBmNMMcjA0RNAagJGuBfrBafBLSLBfhBJDT+4nFDMmtL2h8Cc/pdTKaeZUbP1liE75CX3la3pTG6Yo3A8c9pFpGNAlydEiEn6nZM3stkDpI+m0fJV4exi52fHsvs3J8yHZCzIGJjivyppg4chZG81lSlTbLIGH7hQ699tb+1MB0DA6xeenYjnEg8MMBZXKU9UYQ+7HCiNwZMWKj7iM4GLqoRrT8mRWtC4LZ+nkJhogVKB+swsS4cFbdPIcTg9PXPHnfZOcq5f+bwRLIjzq6yme5FsnGik1qfRwaQXo9mqiUNbQ7a+iFKCj1RE0+1TXrHZzyxOQP3bEk0/b1A4QEQ=
   bucket: buttons.octoblu.com
   endpoint: buttons.octoblu.com.s3-website-us-west-2.amazonaws.com
-  region: us-west-2
   on:
-    branch: master
+    tags: true
+    repo: octoblu/the-buttons
